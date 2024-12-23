@@ -1,0 +1,33 @@
+<svg
+  viewBox="0 0 40 40"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  class="w-full h-full group"
+>
+  <!-- Arrow -->
+  <g
+    class="transition-transform transform origin-center stroke-current group-hover:translate-x-0.5"
+    stroke="black"
+    fill="black"
+  >
+    <path
+      d="M28 20H14"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+    <path
+      d="M25 23L28 20L25 17"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </g>
+
+  <!-- Ring -->
+  <path
+    d="M7 6.56497C14.3204 -0.854991 26.1892 -0.854991 33.5097 6.56497C40.8301 13.9849 40.8301 26.0151 33.5097 33.435C26.1892 40.855 14.3204 40.855 7 33.435"
+    stroke="black"
+    fill="none"
+    class="opacity-0 transition-opacity group-hover:opacity-100 stroke-current"
+    stroke-width="2"
+  ></path>
+</svg>

@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+.sacontainer {
+  @apply container mx-auto px-4;
+}
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Heebo", sans-serif;
+}
+
+/* Main Embla container styles */
+.embla {
+  max-width: 100%; /* Set a max-width for the carousel */
+  margin: auto; /* Center the carousel */
+  --slide-height: 19rem; /* Custom property for slide height */
+  --slide-spacing: 0rem; /* Custom property for slide spacing */
+  --slide-size: 100%; /* Custom property for slide size */
+}
+
+/* Viewport for the Embla carousel */
+.embla__viewport {
+  overflow: hidden; /* Hide overflow to create a viewport */
+}
+
+/* Container for slides, set to display flex */
+.embla__container {
+  display: flex; /* Align slides in a row */
+  touch-action: pan-y pinch-zoom; /* Touch actions for mobile */
+  margin-left: calc(
+    var(--slide-spacing) * -1
+  ); /* Compensate for left padding */
+}
+
+/* Individual slide styles */
+.embla__slide {
+  transform: translate3d(0, 0, 0); /* Enable hardware acceleration */
+  flex: 0 0 var(--slide-size); /* Set flex-basis to custom slide size */
+  min-width: 0; /* Allow slides to shrink if needed */
+  padding-left: var(--slide-spacing); /* Add left spacing */
+}
+
+/* Styles for any numbered indicators within slides */
+.embla__slide__number {
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast); /* Shadow for numbers */
+  border-radius: 1.8rem; /* Rounded corners */
+  font-size: 4rem; /* Large font size for numbers */
+  font-weight: 600; /* Bold weight */
+  display: flex; /* Center contents */
+  align-items: center;
+  justify-content: center;
+  height: var(--slide-height); /* Set height from custom property */
+  user-select: none; /* Prevent text selection */
+}
+
+/* Control styles for buttons (Prev/Next) */
+.embla__controls {
+  display: grid; /* Use grid layout for controls */
+  grid-template-columns: auto 1fr; /* Two-column layout */
+  justify-content: space-between; /* Space out controls */
+  gap: 1.2rem; /* Gap between controls */
+  margin-top: 1.8rem; /* Space above controls */
+}
+
+/* Button styles for controls */
+.embla__buttons {
+  display: grid; /* Use grid layout for buttons */
+  grid-template-columns: repeat(2, 1fr); /* Two buttons in one row */
+  gap: 0.6rem; /* Space between buttons */
+  align-items: center; /* Center align buttons */
+}
+
+/* Base button styles */
+.embla__button {
+  -webkit-tap-highlight-color: rgba(
+    var(--text-high-contrast-rgb-value),
+    0.5
+  ); /* Custom tap highlight color */
+  -webkit-appearance: none; /* Remove default appearance */
+  appearance: none; /* Remove default appearance */
+  background-color: transparent; /* Transparent background */
+  touch-action: manipulation; /* Prevent default touch actions */
+  display: inline-flex; /* Flexbox for alignment */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Pointer cursor for buttons */
+  border: 0; /* No border */
+  padding: 0; /* No padding */
+  margin: 0; /* No margin */
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast); /* Shadow for buttons */
+  width: 3.6rem; /* Set button width */
+  height: 3.6rem; /* Set button height */
+  z-index: 1; /* Bring buttons above slides */
+  border-radius: 50%; /* Circular buttons */
+  color: var(--text-body); /* Text color */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center align contents */
+  justify-content: center; /* Center align contents */
+}
+
+/* Disabled button styles */
+.embla__button:disabled {
+  color: var(--detail-high-contrast); /* Change color when disabled */
+}
+
+/* SVG inside buttons */
+.embla__button__svg {
+  width: 35%; /* SVG size */
+  height: 35%; /* SVG size */
+}
+
+/* Dots container styles */
+.embla__dots {
+  display: flex; /* Use flexbox for dots */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: flex-end; /* Align to the end */
+  align-items: center; /* Center align */
+  margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
+}
+
+/* Dot styles */
+.embla__dot {
+  -webkit-tap-highlight-color: rgba(
+    var(--text-high-contrast-rgb-value),
+    0.5
+  ); /* Custom tap highlight color */
+  -webkit-appearance: none; /* Remove default appearance */
+  appearance: none; /* Remove default appearance */
+  background-color: transparent; /* Transparent background */
+  touch-action: manipulation; /* Prevent default touch actions */
+  display: inline-flex; /* Flexbox for alignment */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Pointer cursor */
+  border: 0; /* No border */
+  padding: 0; /* No padding */
+  margin: 0; /* No margin */
+  width: 2.6rem; /* Set dot width */
+  height: 2.6rem; /* Set dot height */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center align */
+  justify-content: center; /* Center align */
+  border-radius: 50%; /* Circular dots */
+}
+
+/* Inner dot styles */
+.embla__dot:after {
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast); /* Shadow for inner dot */
+  width: 1.4rem; /* Set inner dot width */
+  height: 1.4rem; /* Set inner dot height */
+  border-radius: 50%; /* Circular inner dot */
+  display: flex; /* Flexbox for alignment */
+  content: ""; /* Empty content for pseudo-element */
+}
+
+/* Selected dot styles */
+.embla__dot--selected:after {
+  box-shadow: inset 0 0 0 0.2rem var(--text-body); /* Shadow for selected dot */
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f49344;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d2d2d2;
+  cursor: pointer;
+}
+
+.scrollbar-height-saif {
+  scrollbar-width: none;
+}
+
+@keyframes lineGrow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 300px;
+  }
+}
+
+.animate-lineGrow {
+  animation: lineGrow 1s ease-out forwards; /* Adjust the duration as needed */
+}
